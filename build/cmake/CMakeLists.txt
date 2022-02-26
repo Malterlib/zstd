@@ -165,14 +165,6 @@ if (ZSTD_BUILD_CONTRIB)
 endif ()
 
 #-----------------------------------------------------------------------------
-# Add clean-all target
-#-----------------------------------------------------------------------------
-add_custom_target(clean-all
-   COMMAND ${CMAKE_BUILD_TOOL} clean
-   COMMAND rm -rf ${CMAKE_BINARY_DIR}/
-)
-
-#-----------------------------------------------------------------------------
 # Generate Package Config files
 #
 # This section is based on the boiler plate code from:

@@ -26,7 +26,7 @@ if (MSVC)
     file(GLOB DecompressSources ${LIBRARY_DIR}/decompress/*.c)
     add_compile_options(-DZSTD_DISABLE_ASM)
 else ()
-    file(GLOB DecompressSources ${LIBRARY_DIR}/decompress/*.c ${LIBRARY_DIR}/decompress/*.S)
+    file(GLOB DecompressSources ${LIBRARY_DIR}/decompress/*.c ${LIBRARY_DIR}/decompress/*_${CMAKE_SYSTEM_PROCESSOR}.S)
 endif ()
 file(GLOB DictBuilderSources ${LIBRARY_DIR}/dictBuilder/*.c)
 
