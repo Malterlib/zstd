@@ -15,10 +15,16 @@
 *  Compiler Options
 ****************************************/
 #if defined(_MSC_VER)
-#  define _CRT_SECURE_NO_WARNINGS    /* Disable Visual Studio warning messages for fopen, strncpy, strerror */
-#  define _CRT_NONSTDC_NO_WARNINGS   /* Disable C4996 complaining about posix function names */
+#  ifndef _CRT_SECURE_NO_WARNINGS
+#    define _CRT_SECURE_NO_WARNINGS  /* Disable Visual Studio warning messages for fopen, strncpy, strerror */
+#  endif
+#  ifndef _CRT_NONSTDC_NO_WARNINGS
+#    define _CRT_NONSTDC_NO_WARNINGS /* Disable C4996 complaining about posix function names */
+#  endif
 #  if (_MSC_VER <= 1800)             /* 1800 == Visual Studio 2013 */
-#    define _CRT_SECURE_NO_DEPRECATE /* VS2005 - must be declared before <io.h> and <windows.h> */
+#    ifndef _CRT_SECURE_NO_DEPRECATE
+#      define _CRT_SECURE_NO_DEPRECATE /* VS2005 - must be declared before <io.h> and <windows.h> */
+#    endif
 #    define snprintf sprintf_s       /* snprintf unsupported by Visual <= 2013 */
 #  endif
 #  pragma warning(disable : 4127)    /* disable: C4127: conditional expression is constant */
